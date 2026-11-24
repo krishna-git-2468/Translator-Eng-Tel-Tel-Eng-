@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>English ⇄ Telugu Translator</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Guntur:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <main>
+    <h1>English <span class="swap-mark">⇄</span> తెలుగు</h1>
+    <p class="sub">Type in either language. The direction is detected for you.</p>
+
+    <div class="bar">
+      <span id="fromLabel">English</span>
+      <button id="swap" type="button" aria-label="Swap languages">⇄</button>
+      <span id="toLabel">తెలుగు</span>
+    </div>
+
+    <div class="panes">
+      <section>
+        <textarea id="input" placeholder="Type or paste text here" maxlength="2000"></textarea>
+        <div class="row"><small id="count">0 / 2000</small>
+          <button id="clear" type="button" class="ghost">Clear</button></div>
+      </section>
+      <section>
+        <div id="output" class="out" aria-live="polite">Translation appears here</div>
+        <div class="row"><small id="status"></small>
+          <button id="copy" type="button" class="ghost">Copy</button></div>
+      </section>
+    </div>
+
+    <button id="go" type="button" class="primary">Translate</button>
+
+    <h2>Recent translations</h2>
+    <ul id="history"><li class="empty">Nothing yet. Your last 20 translations show up here.</li></ul>
+    <button id="clearHistory" type="button" class="ghost">Clear history</button>
+  </main>
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
